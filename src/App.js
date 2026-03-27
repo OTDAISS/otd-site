@@ -5,7 +5,7 @@ import Automations from './Automations';
 import Workflows from './Workflows';
 import WebBuilds from './WebBuilds';
 import GameBuilds from './GameBuilds';
-import LeadSniper from './Leadsniper'; // Fixed lowercase 's' to match your file
+import LeadSniper from './LeadSniper'; // Matches LeadSniper.js exactly
 
 function Home() {
   return (
