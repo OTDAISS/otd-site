@@ -1,175 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ocean Tide Drop — Neon Console</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
-<style>
-:root {
-  --black: #010409;
-  --neon-cyan: #00f2ff;
-  --neon-pink: #ff007a;
-  --neon-blue: #0070ff;
-  --border: rgba(0, 242, 255, 0.2);
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Tide Drop | AI Surfer Systems</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Pacifico&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyan: #00e5ff;
+            --magenta: #ff2d78;
+            --orange: #ff8c00;
+            --dark: #050505;
+            --glass: rgba(255, 255, 255, 0.05);
+            --neon-glow: 0 0 15px rgba(0, 229, 255, 0.5);
+        }
 
-/* ── ANIMATION 2: THE SPARKLE STARFIELD ── */
-@keyframes sparkle {
-  0% { transform: translateY(0px); opacity: 0.3; }
-  50% { opacity: 1; }
-  100% { transform: translateY(-1000px); opacity: 0.3; }
-}
+        body {
+            background-color: var(--dark);
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
 
-body {
-  font-family: 'DM Sans', sans-serif;
-  background-color: var(--black);
-  color: #e2e8f0;
-  min-height: 100vh;
-  display: flex;
-  overflow: hidden; /* Keep the stars contained */
-}
+        header {
+            text-align: center;
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--glass);
+        }
 
-/* Sparkle Layer */
-#sparkle-container {
-  position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  z-index: 1;
-  pointer-events: none;
-  background: radial-gradient(circle at bottom, #05192d 0%, #010409 100%);
-}
+        .logo-text {
+            font-family: 'Pacifico', cursive;
+            font-size: 4rem;
+            background: linear-gradient(90deg, var(--cyan), var(--magenta));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+        }
 
-.star {
-  position: absolute;
-  background: white;
-  border-radius: 50%;
-  opacity: 0.5;
-  animation: sparkle linear infinite;
-}
+        /* --- LIVE TIDE MONITOR (DASHBOARD) --- */
+        .tide-monitor {
+            background: rgba(0, 229, 255, 0.02);
+            border: 1px solid var(--cyan);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: -2rem;
+            margin-bottom: 4rem;
+            box-shadow: var(--neon-glow);
+        }
 
-/* ── SIDEBAR ── */
-aside {
-  width: 280px;
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(20px);
-  border-right: 1px solid var(--border);
-  position: relative;
-  height: 100vh;
-  z-index: 100;
-  box-shadow: 10px 0 30px rgba(0, 242, 255, 0.1);
-}
+        .monitor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--glass);
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
 
-.logo-box { padding: 2.5rem 1.5rem; text-align: center; }
-.main-logo { 
-  width: 100%; 
-  filter: drop-shadow(0 0 10px var(--neon-cyan)); 
-}
+        .checkmark {
+            color: var(--cyan);
+            font-weight: 900;
+            text-shadow: 0 0 10px var(--cyan);
+        }
 
-.nav-group { padding: 1.5rem 1.5rem 0.5rem; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--neon-cyan); letter-spacing: 0.2em; }
-.nav-link { 
-  display: flex; align-items: center; gap: 12px; padding: 0.9rem 1.5rem; 
-  color: #94a3b8; text-decoration: none; transition: 0.3s;
-}
-.nav-link:hover, .nav-link.active { 
-  color: #fff; background: rgba(0, 242, 255, 0.05); 
-  border-left: 4px solid var(--neon-cyan);
-  text-shadow: 0 0 10px var(--neon-cyan);
-}
+        .pulse {
+            animation: shadow-pulse 2s infinite;
+        }
 
-/* ── MAIN CONTENT ── */
-main { position: relative; z-index: 10; flex: 1; padding: 4rem; overflow-y: auto; }
-.section-container { display: none; }
-.section-container.active { display: block; animation: fadeIn 0.8s ease; }
+        @keyframes shadow-pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
 
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        /* --- THE TRADING POST GRID --- */
+        .section-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3.5rem;
+            letter-spacing: 6px;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
 
-.card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 3rem;
-  backdrop-filter: blur(10px);
-}
+        .trading-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
 
-.btn-stripe {
-  background: var(--neon-cyan);
-  color: #000;
-  padding: 1.2rem 2.5rem;
-  border-radius: 50px;
-  font-weight: 800;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 0 20px var(--neon-cyan);
-  transition: 0.3s;
-}
-.btn-stripe:hover { transform: scale(1.05); box-shadow: 0 0 35px var(--neon-cyan); }
-</style>
+        .card {
+            background: var(--glass);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--cyan);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .card.premium { border-top: 5px solid var(--cyan); }
+        .card.automation { border-top: 5px solid var(--magenta); }
+        .card.growth { border-top: 5px solid var(--orange); }
+
+        .price-tag {
+            font-family: 'Orbitron';
+            font-size: 1.8rem;
+            color: var(--orange);
+            display: block;
+            margin: 1.5rem 0;
+        }
+
+        .btn-buy {
+            width: 100%;
+            padding: 1rem;
+            font-family: 'Orbitron';
+            font-weight: 900;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-cyan { background: var(--cyan); color: var(--dark); }
+        .btn-magenta { background: var(--magenta); color: white; }
+        .btn-orange { background: var(--orange); color: var(--dark); }
+
+        /* --- THE STATION HOOK --- */
+        .station-box {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, rgba(0,229,255,0.1), rgba(255,45,120,0.1));
+            border: 2px solid var(--cyan);
+            padding: 3rem;
+            text-align: center;
+            border-radius: 20px;
+            margin-top: 2rem;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 2rem;
+            opacity: 0.6;
+        }
+
+        .tag {
+            background: #222;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: var(--cyan);
+            border: 1px solid #444;
+        }
+
+    </style>
 </head>
 <body>
 
-<div id="sparkle-container"></div>
+<div class="container">
+    <header>
+        <p style="letter-spacing: 5px; color: var(--cyan);">FOUNDER'S EDITION</p>
+        <h1 class="logo-text">Ocean Tide Drop</h1>
+        <p style="font-family: 'Orbitron'; color: var(--orange);">AI SURFER SYSTEMS // EST. 2026</p>
+    </header>
 
-<aside>
-  <div class="logo-box">
-    <img src="65ad77bb-8dac-4a4e-8409-e78175401b1f-1_all_4657.png" class="main-logo" alt="Logo">
-  </div>
-  <div class="nav-group">Hatteras Hub</div>
-  <a href="#" class="nav-link active" onclick="showSec('trading')"><i class="fa-solid fa-ship"></i> Trading Post</a>
-  <a href="#" class="nav-link" onclick="showSec('members')"><i class="fa-solid fa-id-card"></i> Chicamacomico</a>
-  <a href="#" class="nav-link" onclick="showSec('free')"><i class="fa-solid fa-gift"></i> Free Shore</a>
-  <a href="#" class="nav-link" onclick="showSec('memorial')"><i class="fa-solid fa-anchor"></i> Salvo Memorial</a>
-</aside>
-
-<main>
-  <div id="trading" class="section-container active">
-    <h1 style="font-family:'Bebas Neue'; font-size: 5rem; letter-spacing: 5px;">DIAMOND <span style="color:var(--neon-cyan)">SHOALS</span></h1>
-    <div class="card" style="margin-top: 2rem; max-width: 500px;">
-      <h2 style="color:var(--neon-cyan); margin-bottom: 1rem;">$17.00 Monthly Subscription</h2>
-      <p style="margin-bottom: 2rem; color: #94a3b8;">Unlock the full AI Surfer Survivor realm and all Hatteras village toolsets.</p>
-      <button class="btn-stripe" onclick="handleStripe()">Secure Membership ⚡</button>
-    </div>
-  </div>
-
-  <div id="memorial" class="section-container">
-    <div class="card" style="text-align: center; border-color: var(--neon-blue);">
-      <h1 style="font-family:'Playfair Display'; font-style: italic; font-size: 4rem;">Salvo Memorial</h1>
-      <h2 style="color: var(--neon-blue); letter-spacing: 2px;">BULL HOPPER</h2>
-      <div style="height: 100px; width: 1px; background: var(--neon-blue); margin: 2rem auto; box-shadow: 0 0 15px var(--neon-blue);"></div>
-      <p style="font-size: 1.5rem;">"Fair Winds & Following Seas"</p>
-    </div>
-  </div>
-</main>
-
-<script>
-// Generate Sparkle Stars
-const container = document.getElementById('sparkle-container');
-for (let i = 0; i < 150; i++) {
-  const star = document.createElement('div');
-  star.className = 'star';
-  const size = Math.random() * 3 + 'px';
-  star.style.width = size;
-  star.style.height = size;
-  star.style.left = Math.random() * 100 + '%';
-  star.style.top = Math.random() * 100 + '%';
-  star.style.animationDuration = (Math.random() * 50 + 10) + 's';
-  star.style.animationDelay = (Math.random() * 10) + 's';
-  container.appendChild(star);
-}
-
-function showSec(id) {
-  document.querySelectorAll('.section-container').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  event.currentTarget.classList.add('active');
-}
-
-function handleStripe() {
-  alert("Initiating Stripe Checkout... (Ensure your Vercel keys are set to 'price_id_here')");
-}
-</script>
-
-</body>
-</html>
+    <section class="tide
