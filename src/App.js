@@ -1,11 +1,9 @@
-App.js 
 import React, { useState } from 'react';
 import MemberPass from './MemberPass';
 
 function App() {
   const [showVault, setShowVault] = useState(false);
 
-  // If the user clicks the button, show the Member Pass screen
   if (showVault) {
     return <MemberPass />;
   }
