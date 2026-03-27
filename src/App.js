@@ -1,7 +1,8 @@
 import WebBuilds from './WebBuilds';
 import GameBuilds from './GameBuilds';
 import Workflows from './Workflows';
-
+import Automations from './Automations';
+import Vault from './Vault';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
