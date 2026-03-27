@@ -1,3 +1,5 @@
+import './index.css';
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Waves, Zap, Anchor, Info, Heart, Home, Send, MessageSquare, X, Sparkles } from 'lucide-react';
