@@ -1,28 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Gamepad2, Cpu, Wind } from 'lucide-react';
+import { Layout, Code, Database } from 'lucide-react';
 
-const GameBuilds = () => {
+const WebBuilds = () => {
   return (
-    <div className="min-h-screen bg-black text-white p-8 font-sans overflow-hidden relative">
-      <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-purple-600/10 blur-[120px] rounded-full" />
-      
-      <div className="max-w-5xl mx-auto relative z-10">
-        <Link to="/" className="text-slate-500 hover:text-purple-400 transition-colors uppercase tracking-widest text-xs font-bold">← Back to Hub</Link>
+    <div className="min-h-screen bg-slate-950 text-white p-12">
+      <div className="max-w-5xl mx-auto">
+        <h1 className="text-4xl font-black italic uppercase mb-4">Architecture Builds</h1>
+        <p className="text-slate-500 mb-12 font-mono italic">Stack: FastAPI // React // MongoDB // Vite</p>
         
-        <header className="mt-12 mb-20">
-          <h1 className="text-6xl md:text-8xl font-black italic tracking-tighter uppercase text-white leading-none mb-6">Game<br/>Builds</h1>
-          <div className="h-1 w-24 bg-purple-500 mb-6" />
-          <p className="text-slate-400 max-w-md">Developing physics-based simulations and immersive browser-based interactive experiences.</p>
-        </header>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="group p-1 bg-gradient-to-br from-purple-500/20 to-transparent rounded-3xl">
-            <div className="bg-[#050505] p-10 rounded-[22px] h-full border border-white/5 group-hover:border-purple-500/50 transition-all">
-              <Gamepad2 className="text-purple-400 mb-6" size={40} />
-              <h3 className="text-xl font-bold mb-2 uppercase">Core Engine</h3>
-              <p className="text-slate-500 font-light text-sm">Custom collision logic and state management for high-performance browser gaming.</p>
-            </div>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="bg-slate-900 border border-slate-800 p-8 rounded-[3rem]">
+            <Code className="text-emerald-400 mb-4" />
+            <h3 className="text-xl font-bold italic mb-4">Frontend Core</h3>
+            <ul className="text-slate-400 space-y-2 font-mono text-sm">
+              <li>- Tailwind CSS Styling</li>
+              <li>- Vercel Web Analytics</li>
+              <li>- React-Router Integration</li>
+            </ul>
+          </div>
+          <div className="bg-slate-900 border border-slate-800 p-8 rounded-[3rem]">
+            <Database className="text-emerald-400 mb-4" />
+            <h3 className="text-xl font-bold italic mb-4">Backend Logic</h3>
+            <ul className="text-slate-400 space-y-2 font-mono text-sm">
+              <li>- Async FastAPI Endpoints</li>
+              <li>- MongoDB Lead Storage</li>
+              <li>- Stripe Webhook Handlers</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -30,4 +33,4 @@ const GameBuilds = () => {
   );
 };
 
-export default GameBuilds;
+export default WebBuilds;
