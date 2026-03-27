@@ -1,63 +1,29 @@
 import React from 'react';
-import { Gamepad2, Monitor, Cpu, ArrowLeft, Trophy } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Gamepad2, Cpu, Wind } from 'lucide-react';
 
 const GameBuilds = () => {
-  const games = [
-    { 
-      title: "Brand Mini-Games", 
-      desc: "Custom-coded browser games designed to explode engagement and capture high-intent leads.", 
-      price: "$3,500+" 
-    },
-    { 
-      title: "AI Training Sims", 
-      desc: "Immersive environments for employee onboarding or high-stakes sales simulation.", 
-      price: "$7,000+" 
-    },
-    { 
-      title: "Arcade Marketing", 
-      desc: "Fast-paced, high-velocity 2D web games optimized for mobile social campaigns.", 
-      price: "$2,500+" 
-    },
-    { 
-      title: "3D Product Visuals", 
-      desc: "Interactive WebGL models that let customers 'play' with your product before buying.", 
-      price: "$1,500+" 
-    }
-  ];
-
   return (
-    <div className="min-h-screen bg-slate-950 text-white p-6 md:p-12 font-sans">
-      <div className="max-w-5xl mx-auto">
-        <Link to="/" className="flex items-center gap-2 text-orange-400 mb-12 hover:text-white transition-colors no-underline font-bold uppercase tracking-widest text-xs">
-          <ArrowLeft size={16} /> Back to Hub
-        </Link>
+    <div className="min-h-screen bg-black text-white p-8 font-sans overflow-hidden relative">
+      <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-purple-600/10 blur-[120px] rounded-full" />
+      
+      <div className="max-w-5xl mx-auto relative z-10">
+        <Link to="/" className="text-slate-500 hover:text-purple-400 transition-colors uppercase tracking-widest text-xs font-bold">← Back to Hub</Link>
+        
+        <header className="mt-12 mb-20">
+          <h1 className="text-6xl md:text-8xl font-black italic tracking-tighter uppercase text-white leading-none mb-6">Game<br/>Builds</h1>
+          <div className="h-1 w-24 bg-purple-500 mb-6" />
+          <p className="text-slate-400 max-w-md">Developing physics-based simulations and immersive browser-based interactive experiences.</p>
+        </header>
 
-        <div className="mb-16">
-          <h1 className="text-5xl md:text-7xl font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500 uppercase leading-none">
-            Game & Sim Builds
-          </h1>
-          <p className="text-slate-400 mt-6 text-lg md:text-xl max-w-2xl font-medium">
-            We turn users into players. Gamified experiences that drive 5x more retention than static pages.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {games.map((g, i) => (
-            <div key={i} className="bg-slate-900/40 border border-orange-500/10 p-10 rounded-[2.5rem] hover:bg-slate-900/60 transition-all group border-b-4 border-b-orange-600/30">
-              <Gamepad2 className="text-orange-400 mb-4 group-hover:rotate-12 transition-transform" size={32} />
-              <h3 className="text-2xl font-black mb-4 uppercase italic tracking-tight">{g.title}</h3>
-              <p className="text-slate-400 text-sm mb-8 leading-relaxed font-medium">{g.desc}</p>
-              <div className="text-2xl font-black text-orange-400 italic tracking-tighter">{g.price}</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="group p-1 bg-gradient-to-br from-purple-500/20 to-transparent rounded-3xl">
+            <div className="bg-[#050505] p-10 rounded-[22px] h-full border border-white/5 group-hover:border-purple-500/50 transition-all">
+              <Gamepad2 className="text-purple-400 mb-6" size={40} />
+              <h3 className="text-xl font-bold mb-2 uppercase">Core Engine</h3>
+              <p className="text-slate-500 font-light text-sm">Custom collision logic and state management for high-performance browser gaming.</p>
             </div>
-          ))}
-        </div>
-
-        <div className="mt-20 p-10 bg-orange-600/5 border border-orange-500/20 rounded-[3rem] flex items-center gap-6">
-          <Trophy className="text-orange-400 hidden md:block" size={48} />
-          <p className="text-slate-300 italic text-lg leading-relaxed">
-            "Gamification is the ultimate lead magnet. We build experiences that people actually want to spend time with."
-          </p>
+          </div>
         </div>
       </div>
     </div>
