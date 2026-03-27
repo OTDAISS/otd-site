@@ -5,7 +5,7 @@ import Automations from './Automations';
 import Workflows from './Workflows';
 import WebBuilds from './WebBuilds';
 import GameBuilds from './GameBuilds';
-import LeadSniper from './Leadsniper';
+import LeadSniper from './LeadSniper';
 
 function Home() {
   return (
@@ -17,19 +17,19 @@ function Home() {
         <p className="text-blue-400/80 font-bold tracking-[0.4em] uppercase mb-16 text-[10px] md:text-xs">Digital Ecosystem Architect</p>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          <Link to="/automations" className="group bg-slate-800/40 hover:bg-blue-600 p-8 rounded-3xl transition-all no-underline text-white border border-blue-500/20 shadow-lg">
+          <Link to="/automations" className="group bg-slate-800/40 hover:bg-blue-600 p-8 rounded-3xl transition-all no-underline text-white border border-blue-500/20 shadow-lg hover:shadow-blue-500/20">
             <h2 className="font-black italic text-xl md:text-2xl group-hover:scale-105 transition-transform uppercase text-center">AI Automations</h2>
           </Link>
-          <Link to="/workflows" className="group bg-slate-800/40 hover:bg-cyan-600 p-8 rounded-3xl transition-all no-underline text-white border border-cyan-500/20 shadow-lg">
+          <Link to="/workflows" className="group bg-slate-800/40 hover:bg-cyan-600 p-8 rounded-3xl transition-all no-underline text-white border border-cyan-500/20 shadow-lg hover:shadow-cyan-500/20">
             <h2 className="font-black italic text-xl md:text-2xl group-hover:scale-105 transition-transform uppercase text-center">Strategic Workflows</h2>
           </Link>
-          <Link to="/web-builds" className="group bg-slate-800/40 hover:bg-purple-600 p-8 rounded-3xl transition-all no-underline text-white border border-purple-500/20 shadow-lg">
+          <Link to="/web-builds" className="group bg-slate-800/40 hover:bg-purple-600 p-8 rounded-3xl transition-all no-underline text-white border border-purple-500/20 shadow-lg hover:shadow-purple-500/20">
             <h2 className="font-black italic text-xl md:text-2xl group-hover:scale-105 transition-transform uppercase text-center">High-Velocity Web</h2>
           </Link>
-          <Link to="/game-builds" className="group bg-slate-800/40 hover:bg-orange-600 p-8 rounded-3xl transition-all no-underline text-white border border-orange-500/20 shadow-lg">
+          <Link to="/game-builds" className="group bg-slate-800/40 hover:bg-orange-600 p-8 rounded-3xl transition-all no-underline text-white border border-orange-500/20 shadow-lg hover:shadow-orange-500/20">
             <h2 className="font-black italic text-xl md:text-2xl group-hover:scale-105 transition-transform uppercase text-center">Game & Sim Builds</h2>
           </Link>
-          <Link to="/vault" className="group bg-slate-800/40 hover:bg-emerald-600 p-8 rounded-3xl transition-all no-underline text-white border border-emerald-500/20 lg:col-span-2 shadow-lg">
+          <Link to="/vault" className="group bg-slate-800/40 hover:bg-emerald-600 p-8 rounded-3xl transition-all no-underline text-white border border-emerald-500/20 lg:col-span-2 shadow-lg hover:shadow-emerald-500/20">
             <h2 className="font-black italic text-xl md:text-2xl group-hover:scale-105 transition-transform uppercase text-center">Member Vault Access</h2>
           </Link>
         </div>
