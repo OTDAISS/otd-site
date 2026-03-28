@@ -1,69 +1,50 @@
 {
-  "application": {
-    "name": "OTD AI SURFER",
-    "subtitle": "Digital Ecosystem Architect",
-    "copyright": "© 2026 Ocean Tide Drop",
-    "status": "Optimized",
-    "year": 2026
+  "project_name": "OTD AI SURFER",
+  "organization": "Ocean Tide Drop",
+  "year": 2026,
+  "theme": {
+    "background_color": "black",
+    "text_color": "white",
+    "accent_color": "cyan-400",
+    "font_family": "font-sans",
+    "aesthetic": "Digital Ecosystem Architect"
   },
-  "navigation": [
+  "navigation_routes": [
     {
       "name": "Web Builds",
       "path": "/web",
       "icon": "Globe",
-      "themeColor": "cyan",
       "gradient": "from-cyan-500/20"
     },
     {
       "name": "Game Builds",
       "path": "/games",
       "icon": "Gamepad2",
-      "themeColor": "purple",
       "gradient": "from-purple-500/20"
     },
     {
       "name": "Workflows",
       "path": "/flows",
       "icon": "Database",
-      "themeColor": "emerald",
       "gradient": "from-emerald-500/20"
     },
     {
       "name": "Automations",
       "path": "/auto",
       "icon": "Bot",
-      "themeColor": "orange",
       "gradient": "from-orange-500/20"
     },
     {
       "name": "The Vault",
       "path": "/vault",
       "icon": "Lock",
-      "themeColor": "red",
       "gradient": "from-red-500/20"
     }
   ],
-  "routingConfig": {
-    "library": "react-router-dom",
-    "basePath": "/",
-    "routes": [
-      "/",
-      "/web",
-      "/games",
-      "/flows",
-      "/auto",
-      "/vault"
-    ]
-  },
-  "techStack": {
-    "framework": "React",
-    "styling": "Tailwind CSS",
-    "icons": "Lucide-React",
-    "designTraits": [
-      "Dark Mode",
-      "Italic Typography",
-      "Glassmorphism",
-      "High Tracking"
-    ]
-  }
+  "dependencies": [
+    "react",
+    "react-router-dom",
+    "lucide-react"
+  ],
+  "status": "Optimized"
 }
