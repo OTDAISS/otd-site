@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react
 import { 
   Users2, Download, Star, ShieldCheck, Cpu, LayoutGrid, Lock, 
   Home as HomeIcon, Activity, CheckSquare, Wand2, Copy, 
-  CheckCircle, Terminal, Calendar, Clock, ChevronRight, Zap 
+  CheckCircle, Terminal, Calendar, Clock, ChevronRight, Zap,
+  Coins, BarChart3, TrendingDown
 } from 'lucide-react';
 
 // --- 1. THE TYPEWRITER ENGINE ---
@@ -23,84 +24,81 @@ const useTypewriter = (text, speed = 50) => {
   return displayedText;
 };
 
-// --- 2. THE BOOKING FORM (NEW) ---
-const BookingForm = () => {
-  const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', service: 'Strategy Audit', message: '' });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
-  if (submitted) {
-    return (
-      <div className="min-h-[80vh] flex items-center justify-center p-6 animate-in zoom-in duration-500">
-        <div className="bg-slate-900 border border-emerald-500/30 p-12 rounded-[3.5rem] max-w-md w-full text-center shadow-[0_0_50px_rgba(16,185,129,0.1)]">
-          <div className="bg-emerald-500/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8 animate-pulse">
-            <CheckCircle size={40} className="text-emerald-400" />
-          </div>
-          <h1 className="text-3xl font-black uppercase italic text-white mb-4">Request Logged</h1>
-          <p className="text-slate-400 text-sm mb-8 font-mono">
-            DEPLOYMENT FOR <span className="text-emerald-400 underline">{formData.service}</span> INITIALIZED.
-          </p>
-          <button onClick={() => setSubmitted(false)} className="w-full bg-slate-800 hover:bg-slate-700 text-white py-4 rounded-2xl font-black uppercase tracking-widest transition-all">
-            Return to Dashboard
-          </button>
-        </div>
-      </div>
-    );
-  }
+// --- 2. TOKEN ARBITRAGE COMPONENT (The "Bloomberg" Table) ---
+const TokenArbitrage = () => {
+  const models = [
+    { name: "GPT-4o", provider: "OpenAI", price: "$5.00", latency: "450ms", value: "High" },
+    { name: "Claude 3.5", provider: "Anthropic", price: "$3.00", latency: "520ms", value: "Extreme" },
+    { name: "Llama 3 (70B)", provider: "Groq", price: "$0.75", latency: "80ms", value: "Alpha" },
+    { name: "DeepSeek V2", provider: "DeepSeek", price: "$0.14", latency: "650ms", value: "Budget" }
+  ];
 
   return (
-    <div className="p-8 md:p-16 flex items-center justify-center animate-in fade-in duration-700">
-      <div className="max-w-4xl w-full grid md:grid-cols-5 bg-slate-900/40 border border-slate-800 rounded-[3.5rem] overflow-hidden shadow-2xl backdrop-blur-md">
-        <div className="md:col-span-2 bg-emerald-600 p-12 flex flex-col justify-between">
+    <div className="p-10 max-w-5xl mx-auto animate-in fade-in duration-1000">
+      <div className="bg-slate-900 border border-emerald-500/20 p-10 rounded-[3rem] shadow-2xl backdrop-blur-xl">
+        <div className="flex justify-between items-center mb-10">
           <div>
-            <Zap size={40} className="text-black mb-8" />
-            <h2 className="text-4xl font-black uppercase italic leading-none text-black mb-6">Secure <br /> Your <br /> Slot</h2>
-            <p className="text-emerald-950 text-sm font-bold opacity-80">Enter the development pipeline. Our team handles the heavy lifting of AI integration.</p>
+            <div className="flex items-center gap-3 text-emerald-400 mb-2">
+              <Coins size={20} />
+              <span className="font-mono text-[10px] uppercase tracking-[0.3em] font-black">// Cost Arbitrage</span>
+            </div>
+            <h2 className="text-4xl font-black uppercase italic text-white">Token Arbitrage</h2>
           </div>
-          <div className="flex items-center gap-3 text-emerald-950">
-            <ShieldCheck size={18} />
-            <span className="text-[10px] font-black uppercase tracking-widest">Priority Access</span>
-          </div>
+          <div className="bg-emerald-500 text-black px-4 py-1 rounded-full text-[10px] font-black uppercase animate-pulse">Live Rates</div>
         </div>
-        <form onSubmit={handleSubmit} className="md:col-span-3 p-12 space-y-6">
-          <div className="space-y-4">
-            <input required type="text" placeholder="FULL NAME" className="w-full bg-slate-950 border border-slate-800 p-5 rounded-2xl focus:border-emerald-500 outline-none font-mono text-sm text-emerald-400" onChange={(e) => setFormData({...formData, name: e.target.value})}/>
-            <input required type="email" placeholder="EMAIL@HQ.COM" className="w-full bg-slate-950 border border-slate-800 p-5 rounded-2xl focus:border-emerald-500 outline-none font-mono text-sm text-emerald-400" onChange={(e) => setFormData({...formData, email: e.target.value})}/>
-            <select className="w-full bg-slate-950 border border-slate-800 p-5 rounded-2xl focus:border-emerald-500 outline-none font-mono text-sm text-emerald-400 appearance-none" onChange={(e) => setFormData({...formData, service: e.target.value})}>
-              <option>Strategy Audit</option>
-              <option>Voice Agent Deployment</option>
-              <option>Workflow Automation</option>
-            </select>
-          </div>
-          <button type="submit" className="group w-full bg-emerald-500 hover:bg-emerald-400 text-black py-6 rounded-2xl font-black uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-3">
-            Initialize <ChevronRight size={18} />
-          </button>
-        </form>
+
+        <div className="overflow-hidden rounded-2xl border border-slate-800">
+          <table className="w-full text-left border-collapse">
+            <thead className="bg-slate-950">
+              <tr>
+                <th className="p-5 text-[10px] font-mono text-slate-500 uppercase tracking-widest">Model Engine</th>
+                <th className="p-5 text-[10px] font-mono text-slate-500 uppercase tracking-widest text-center">Price / 1M</th>
+                <th className="p-5 text-[10px] font-mono text-slate-500 uppercase tracking-widest text-center">Latency</th>
+                <th className="p-5 text-[10px] font-mono text-slate-500 uppercase tracking-widest text-right">Rating</th>
+              </tr>
+            </thead>
+            <tbody className="bg-slate-900/40">
+              {models.map((m, i) => (
+                <tr key={i} className="border-t border-slate-800 hover:bg-emerald-500/5 transition-colors group">
+                  <td className="p-5">
+                    <div className="font-bold text-white">{m.name}</div>
+                    <div className="text-[9px] text-slate-600 uppercase font-mono">{m.provider}</div>
+                  </td>
+                  <td className="p-5 font-mono text-emerald-400 text-center">{m.price}</td>
+                  <td className="p-5 text-slate-400 text-center">
+                    <div className="flex items-center justify-center gap-2 text-xs">
+                      <Zap size={12} className={i === 2 ? "text-emerald-500" : "text-slate-700"} /> {m.latency}
+                    </div>
+                  </td>
+                  <td className="p-5 text-right">
+                    <span className={`px-3 py-1 rounded-md text-[9px] font-black uppercase ${m.value === 'Alpha' ? 'bg-emerald-500 text-black' : 'bg-slate-800 text-slate-400'}`}>
+                      {m.value}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
 };
 
-// --- 3. PAGE COMPONENTS ---
+// --- 3. OTHER PAGE COMPONENTS ---
 const Home = () => {
-  const text = useTypewriter("OTD_SYSTEMS_LIVE // SELECT_PROTOCOL", 60);
+  const text = useTypewriter("OTD_SYSTEMS_V5.0 // ARBITRAGE_ENABLED", 60);
   return <div className="p-20 font-mono text-cyan-400"><h1 className="text-5xl font-black italic">{text}</h1></div>;
 };
-
-// (Include PromptForge, AutomationScorecard, and AgentMarketplace here...)
 
 // --- 4. SYSTEM DOCK ---
 const SystemDock = () => {
   const location = useLocation();
   const navItems = [
     { path: '/', icon: <HomeIcon size={20} /> },
-    { path: '/book', icon: <Calendar size={20} /> },
+    { path: '/arbitrage', icon: <Coins size={20} /> },
+    { path: '/scorecard', icon: <Activity size={20} /> },
     { path: '/marketplace', icon: <LayoutGrid size={20} /> },
-    { path: '/forge', icon: <Wand2 size={20} /> },
   ];
 
   return (
@@ -125,10 +123,11 @@ export default function App() {
         <main className="relative z-10 pt-10 pb-32">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/book" element={<BookingForm />} />
-            {/* Add other routes here */}
+            <Route path="/arbitrage" element={<TokenArbitrage />} />
+            {/* Include previous routes: /forge, /scorecard, /marketplace, /book */}
           </Routes>
         </main>
+        {/* CRT SCANLINE VFX */}
         <div className="pointer-events-none fixed inset-0 z-50 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.02),rgba(0,255,0,0.01),rgba(0,0,255,0.02))] bg-[length:100%_3px,3px_100%] opacity-40" />
       </div>
     </Router>
