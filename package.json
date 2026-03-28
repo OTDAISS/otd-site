@@ -1,39 +1,69 @@
 {
-  "name": "otd-ai-surfer",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "autoprefixer": "^10.4.18",
-    "lucide-react": "^0.460.0",
-    "postcss": "^8.4.35",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.3",
-    "react-scripts": "5.0.1",
-    "tailwindcss": "^3.4.1"
+  "application": {
+    "name": "OTD AI SURFER",
+    "subtitle": "Digital Ecosystem Architect",
+    "copyright": "© 2026 Ocean Tide Drop",
+    "status": "Optimized",
+    "year": 2026
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
+  "navigation": [
+    {
+      "name": "Web Builds",
+      "path": "/web",
+      "icon": "Globe",
+      "themeColor": "cyan",
+      "gradient": "from-cyan-500/20"
+    },
+    {
+      "name": "Game Builds",
+      "path": "/games",
+      "icon": "Gamepad2",
+      "themeColor": "purple",
+      "gradient": "from-purple-500/20"
+    },
+    {
+      "name": "Workflows",
+      "path": "/flows",
+      "icon": "Database",
+      "themeColor": "emerald",
+      "gradient": "from-emerald-500/20"
+    },
+    {
+      "name": "Automations",
+      "path": "/auto",
+      "icon": "Bot",
+      "themeColor": "orange",
+      "gradient": "from-orange-500/20"
+    },
+    {
+      "name": "The Vault",
+      "path": "/vault",
+      "icon": "Lock",
+      "themeColor": "red",
+      "gradient": "from-red-500/20"
+    }
+  ],
+  "routingConfig": {
+    "library": "react-router-dom",
+    "basePath": "/",
+    "routes": [
+      "/",
+      "/web",
+      "/games",
+      "/flows",
+      "/auto",
+      "/vault"
     ]
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+  "techStack": {
+    "framework": "React",
+    "styling": "Tailwind CSS",
+    "icons": "Lucide-React",
+    "designTraits": [
+      "Dark Mode",
+      "Italic Typography",
+      "Glassmorphism",
+      "High Tracking"
     ]
   }
 }
