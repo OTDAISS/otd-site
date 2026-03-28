@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const VictoriaPortal = () => {
   return (
@@ -11,9 +12,9 @@ const VictoriaPortal = () => {
         <h3>Encrypted Data Stream</h3>
         <p>Awaiting surfer authentication...</p>
       </div>
-      <a href="/otd-site/" style={{ color: '#00f2ff', marginTop: '20px', display: 'block' }}>
+      <Link to="/" style={{ color: '#00f2ff', marginTop: '20px', display: 'block' }}>
         ← Return to Main Terminal
-      </a>
+      </Link>
     </div>
   );
 };
