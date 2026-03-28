@@ -1,0 +1,32 @@
+{
+  "strategy_name": "2025 Marketing Automation Blueprint",
+  "vision_statement": "Beyond basic scheduling to hyper-personalized customer experiences at scale.",
+  "target_audience": "B2C Digital Marketers",
+  "core_pillars": [
+    {
+      "pillar": "Unified Customer Data",
+      "description": "Consolidating fragmented touchpoints into a single source of truth for real-time activation.",
+      "icon": "Database"
+    },
+    {
+      "pillar": "Cross-Channel Orchestration",
+      "description": "Seamlessly synchronizing messaging across email, SMS, social, and web interfaces.",
+      "icon": "Workflow"
+    },
+    {
+      "pillar": "AI-Powered Optimization",
+      "description": "Machine learning algorithms that predict user intent and automate timing/content delivery.",
+      "icon": "Cpu"
+    }
+  ],
+  "success_factors": {
+    "technical": "Deployment of high-performance, integrated MarTech stacks.",
+    "strategic": "Framework-driven implementation focused on journey mapping and KPI alignment."
+  },
+  "implementation_status": "Ready for 2025 Deployment",
+  "visual_theme": {
+    "primary_color": "emerald-500",
+    "background": "slate-950",
+    "font_style": "font-sans uppercase tracking-tight"
+  }
+}
