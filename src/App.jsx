@@ -1,38 +1,24 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import './App.css';
-import VictoriaPortal from "./pages/VictoriaPortal"; 
+import React from "react";
+import "./App.css";
 
-function App() {
+// Optional: Global header, dock, or navigation
+import SystemDock from "./components/SystemDock.jsx";
+import GlobalHeader from "./components/GlobalHeader.js";
+
+export default function App({ children }) {
   return (
-    <Router basename="/">
-      <div className="App">
-        <Routes>
-          <Route path="/" element={
-            <div style={{ textAlign: 'center', marginTop: '50px', color: 'white' }}>
-              <h1 style={{ color: '#00f2ff', fontSize: '3rem' }}>Ocean Tide Drop | AI Surfer</h1>
-              <p style={{ letterSpacing: '2px' }}>MAIN HUB ACTIVE</p>
-              
-              <Link to="/victoria" style={{ 
-                color: '#00f2ff', 
-                textDecoration: 'none', 
-                border: '2px solid #00f2ff', 
-                padding: '15px 30px', 
-                borderRadius: '5px',
-                display: 'inline-block',
-                marginTop: '30px',
-                fontWeight: 'bold',
-                textTransform: 'uppercase'
-              }}>
-                Enter Victoria Portal
-              </Link>
-            </div>
-          } />
-          <Route path="/victoria" element={<VictoriaPortal />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="app-container min-h-screen w-full bg-black text-white overflow-x-hidden">
+
+      {/* Global Header */}
+      {GlobalHeader && <GlobalHeader />}
+
+      {/* System Dock (bottom navigation / tools) */}
+      {SystemDock && <SystemDock />}
+
+      {/* Main Content */}
+      <main className="pt-20 pb-20 px-4">
+        {children}
+      </main>
+    </div>
   );
 }
-
-export default App;
