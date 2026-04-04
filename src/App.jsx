@@ -1,26 +1,23 @@
 import React from "react";
 import "./App.css";
-
-import SystemDock from "./components/SystemDock.jsx";
 import GlobalHeader from "./components/GlobalHeader.js";
+import SystemDock from "./components/SystemDock.js";
 
-export default function App({ children }) {
+function App() {
   return (
-    <div className="app-shell min-h-screen w-full bg-black text-white overflow-x-hidden">
-
+    <div className="app-container">
       {/* Global Header */}
-      {GlobalHeader && <GlobalHeader />}
+      <GlobalHeader />
 
-      {/* Animated Page Container */}
-      <main
-        className="pt-20 pb-24 px-4 fade-in"
-        style={{ animation: "fadeIn 0.6s ease-out" }}
-      >
-        {children}
+      {/* Main Content Area */}
+      <main className="app-main">
+        {/* This is where all routed pages will appear */}
       </main>
 
       {/* System Dock */}
-      {SystemDock && <SystemDock />}
+      <SystemDock />
     </div>
   );
 }
+
+export default App;
