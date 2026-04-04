@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import { Analytics } from '@vercel/analytics/react';
 
 import SystemDock from "./components/SystemDock.jsx";
 import GlobalHeader from "./components/GlobalHeader.js";
@@ -21,6 +22,9 @@ export default function App({ children }) {
 
       {/* System Dock */}
       {SystemDock && <SystemDock />}
+
+      {/* Vercel Web Analytics */}
+      <Analytics />
     </div>
   );
 }
