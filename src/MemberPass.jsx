@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Key, ShieldCheck } from "lucide-react";
 
-const ACCESS_CODE = "OCEAN2025"; // move to env var when ready
+const ACCESS_CODE = "OCEAN2025";
 
 export default function MemberPass({ onAuthenticated }) {
   const [code, setCode] = useState("");
@@ -23,13 +23,9 @@ export default function MemberPass({ onAuthenticated }) {
   return (
     <div className="min-h-screen bg-slate-950 flex items-center justify-center px-4">
       <div className="bg-slate-900 rounded-[3.5rem] p-12 max-w-md w-full border border-slate-800 flex flex-col items-center gap-8">
-        
-        {/* Icon */}
         <div className="w-16 h-16 rounded-full border border-emerald-500/30 bg-emerald-500/10 flex items-center justify-center">
           <Key className="text-emerald-400 w-7 h-7" />
         </div>
-
-        {/* Title */}
         <div className="text-center">
           <h1 className="text-3xl font-black uppercase italic tracking-tighter text-white mb-2">
             Member Access
@@ -38,8 +34,6 @@ export default function MemberPass({ onAuthenticated }) {
             Enter your credentials to access your custom AI dashboard and project analytics.
           </p>
         </div>
-
-        {/* Input */}
         <div className="w-full flex flex-col gap-3">
           <input
             type="password"
@@ -59,8 +53,6 @@ export default function MemberPass({ onAuthenticated }) {
             </p>
           )}
         </div>
-
-        {/* Button */}
         <button
           onClick={handleAuth}
           disabled={loading || !code}
@@ -68,8 +60,6 @@ export default function MemberPass({ onAuthenticated }) {
         >
           {loading ? "Authenticating..." : "Authenticate"}
         </button>
-
-        {/* Footer */}
         <div className="flex items-center gap-2 text-slate-600">
           <ShieldCheck className="w-3 h-3" />
           <span className="text-[10px] font-black uppercase tracking-widest">
