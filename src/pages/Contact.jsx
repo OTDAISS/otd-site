@@ -1,122 +1,175 @@
 import React, { useState } from "react";
 
-export default function ContactPage() {
-  const [formData, setFormData] = useState({
+const services = [
+  "AI Strategy Audit — $500",
+  "AI Voice Agent Setup — From $2,500",
+  "AI Workflow Automation — From $1,500",
+  "Reputation Guardian — From $750/mo",
+  "Content Flywheel — From $1,000/mo",
+  "Managed AI Employee — From $2,000/mo",
+  "Not sure — just want to talk",
+];
+
+export default function Contact() {
+  const [form, setForm] = useState({
     name: "",
     email: "",
+    business: "",
+    service: "",
     message: "",
   });
-
-  const [status, setStatus] = useState({
-    loading: false,
-    success: null,
-    error: null,
-  });
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setStatus({ loading: true, success: null, error: null });
-
-    try {
-      const response = await fetch("/api/leads", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) throw new Error("Submission failed");
-
-      setStatus({
-        loading: false,
-        success: "Your message has been sent! We’ll reach out within 5 business days.",
-        error: null,
-      });
-
-      setFormData({ name: "", email: "", message: "" });
-    } catch (err) {
-      setStatus({
-        loading: false,
-        success: null,
-        error: "Something went wrong. Please try again.",
-      });
-    }
+    // Replace with your form endpoint (Formspree, EmailJS, etc.)
+    setSubmitted(true);
   };
+
+  if (submitted) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center px-6">
+        <div className="text-center max-w-md">
+          <div className="w-16 h-16 rounded-full bg-teal-500/10 border border-teal-500/30 flex items-center justify-center mx-auto mb-6">
+            <span className="text-teal-400 text-2xl">✓</span>
+          </div>
+          <h2 className="text-3xl font-bold text-white mb-4">You're in the tide.</h2>
+          <p className="text-gray-400 text-lg">
+            We'll be in touch within 24 hours to confirm your call and get
+            started.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="bg-black min-h-screen text-white">
-      <div className="max-w-3xl mx-auto py-20 px-6">
-        <h1 className="text-4xl font-bold text-teal-400 drop-shadow-[0_0_10px_rgba(45,212,191,0.8)] mb-6">
-          Schedule a Discovery Call
-        </h1>
+    <div className="min-h-screen bg-black text-white px-6 py-24">
+      <div className="max-w-2xl mx-auto">
 
-        <p className="text-gray-300 mb-10">
-          We will assess your current operations, identify automation opportunities, 
-          and provide a customized proposal within 5 business days.
-        </p>
-
-        <div className="bg-gray-900/50 p-10 rounded-3xl border border-teal-900/50">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Name */}
-            <input
-              id="name"
-              type="text"
-              placeholder="Your Name"
-              required
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full p-4 rounded-xl bg-black/40 border border-teal-900/40 text-white placeholder-gray-500 focus:outline-none focus:border-teal-400"
-            />
-
-            {/* Email */}
-            <input
-              id="email"
-              type="email"
-              placeholder="Business Email"
-              required
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full p-4 rounded-xl bg-black/40 border border-teal-900/40 text-white placeholder-gray-500 focus:outline-none focus:border-teal-400"
-            />
-
-            {/* Message */}
-            <textarea
-              id="message"
-              placeholder="Tell us about your goals..."
-              required
-              rows="5"
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full p-4 rounded-xl bg-black/40 border border-teal-900/40 text-white placeholder-gray-500 focus:outline-none focus:border-teal-400"
-            />
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              disabled={status.loading}
-              className="w-full py-4 rounded-xl bg-teal-500 text-black font-semibold shadow-[0_0_20px_rgba(45,212,191,0.3)] hover:bg-teal-400 transition disabled:opacity-50"
-            >
-              {status.loading ? "Sending..." : "Submit"}
-            </button>
-          </form>
-
-          {/* Status Messages */}
-          {status.success && (
-            <p className="mt-6 text-teal-400">{status.success}</p>
-          )}
-          {status.error && (
-            <p className="mt-6 text-red-400">{status.error}</p>
-          )}
-
-          {/* Contact Details */}
-          <div className="mt-10 text-gray-400 text-sm">
-            <p>📍 West Ashley, Charleston, SC</p>
-            <p>📧 oceantidedrop@gmail.com</p>
-          </div>
+        {/* Header */}
+        <div className="text-center mb-14">
+          <p className="text-teal-500 font-mono text-xs uppercase tracking-widest mb-4">
+            Let's Talk
+          </p>
+          <h1 className="text-5xl font-bold text-white mb-4">
+            Book a Free Call
+          </h1>
+          <p className="text-gray-400 text-lg">
+            30 minutes. No pitch. Just a clear look at what AI can do for your
+            business and what it would cost.
+          </p>
         </div>
+
+        {/* Calendly placeholder — swap with your real link */}
+        <div className="mb-10 p-6 rounded-2xl border border-teal-900/40 bg-gray-900/30 text-center">
+          <p className="text-teal-400 font-mono text-xs uppercase tracking-widest mb-3">
+            Book directly
+          </p>
+          
+            href="https://calendly.com/oceantidedrop"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-block px-8 py-3 rounded-full bg-teal-400 text-black font-bold hover:bg-teal-300 transition-all duration-200"
+          >
+            Schedule on Calendly
+          </a>
+          <p className="text-gray-600 text-xs mt-3">Or fill out the form below and we'll reach out to schedule.</p>
+        </div>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+          <div className="grid sm:grid-cols-2 gap-5">
+            <div className="flex flex-col gap-2">
+              <label className="text-teal-500 font-mono text-xs uppercase tracking-widest">
+                Your Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                required
+                value={form.name}
+                onChange={handleChange}
+                placeholder="Jane Smith"
+                className="bg-gray-900/50 border border-teal-900/50 rounded-xl px-5 py-3 text-white placeholder-gray-600 outline-none focus:border-teal-500/60 transition-all"
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label className="text-teal-500 font-mono text-xs uppercase tracking-widest">
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                required
+                value={form.email}
+                onChange={handleChange}
+                placeholder="jane@business.com"
+                className="bg-gray-900/50 border border-teal-900/50 rounded-xl px-5 py-3 text-white placeholder-gray-600 outline-none focus:border-teal-500/60 transition-all"
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <label className="text-teal-500 font-mono text-xs uppercase tracking-widest">
+              Business Name
+            </label>
+            <input
+              type="text"
+              name="business"
+              value={form.business}
+              onChange={handleChange}
+              placeholder="Your Business"
+              className="bg-gray-900/50 border border-teal-900/50 rounded-xl px-5 py-3 text-white placeholder-gray-600 outline-none focus:border-teal-500/60 transition-all"
+            />
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <label className="text-teal-500 font-mono text-xs uppercase tracking-widest">
+              I'm interested in...
+            </label>
+            <select
+              name="service"
+              value={form.service}
+              onChange={handleChange}
+              className="bg-gray-900/50 border border-teal-900/50 rounded-xl px-5 py-3 text-white outline-none focus:border-teal-500/60 transition-all appearance-none"
+            >
+              <option value="" disabled>Select a service</option>
+              {services.map((s, i) => (
+                <option key={i} value={s}>{s}</option>
+              ))}
+            </select>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <label className="text-teal-500 font-mono text-xs uppercase tracking-widest">
+              Tell us about your business
+            </label>
+            <textarea
+              name="message"
+              value={form.message}
+              onChange={handleChange}
+              rows={4}
+              placeholder="What's your biggest operational headache right now?"
+              className="bg-gray-900/50 border border-teal-900/50 rounded-xl px-5 py-3 text-white placeholder-gray-600 outline-none focus:border-teal-500/60 transition-all resize-none"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="mt-2 w-full py-4 rounded-xl bg-teal-400 text-black font-bold text-lg hover:bg-teal-300 transition-all duration-200"
+          >
+            Send My Request
+          </button>
+
+          <p className="text-gray-600 text-xs text-center">
+            We respond within 24 hours. No spam, ever.
+          </p>
+        </form>
       </div>
     </div>
   );
