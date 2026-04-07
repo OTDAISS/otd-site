@@ -1,6 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import SystemDock from "./components/SystemDock";
+import Footer from "./components/Footer";
 import "./styles/global.css";
 
 export default function App() {
@@ -10,6 +11,7 @@ export default function App() {
       <div className="pt-24">
         <Outlet />
       </div>
+      <Footer />
     </div>
   );
 }
