@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
-import logo from "./assets/logo.png"; // Make sure your logo is here
+import logo from "./images/logo.png"; // Make sure your logo is here
 
 export default function App() {
   return (
