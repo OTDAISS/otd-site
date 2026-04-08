@@ -8,7 +8,7 @@ import Contact from "./pages/Contact";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,   // ← Your layout with nav + footer
+    element: <App />,   // ← THIS IS THE FIX
     children: [
       { index: true, element: <Home /> },
       { path: "services", element: <Services /> },
