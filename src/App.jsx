@@ -8,7 +8,7 @@ function App() {
 
       <main className="min-h-screen bg-gradient-to-br from-black via-slate-900 to-teal-900 text-teal-200 flex flex-col items-center justify-center px-6">
         <h1 className="text-5xl font-bold mb-6 drop-shadow-[0_0_25px_rgba(45,212,191,0.8)] text-center">
-          Ocean Tide Drop
+          Ocean Tide Drop AI Surfer
         </h1>
 
         <p className="text-lg text-gray-300 max-w-xl text-center mb-8">
