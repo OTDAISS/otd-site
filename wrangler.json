@@ -1,9 +1,0 @@
-{
-  "build": {
-    "external": ["stripe"]
-  }
-}
-[build]
-command = "npm run build"
-node_compat = true
-external = ["stripe"]
